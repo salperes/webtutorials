@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        table,
+        td,
+        th,
+        thead {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.5em;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        thead tr {
+            background-color: orange;
+        }
+
+        tbody tr {
+            text-align: center;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        tbody tr:hover {
+            background-color: blue;
+            color: beige;
+
+        }
+
+        tbody tr:active {
+            background-color: red;
+            color: beige;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Departman</th>
+                <th>Maaş</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mustafa</td>
+                <td>Bilişim</td>
+                <td>25.000</td>
+            </tr>
+
+            <tr>
+                <td>Alper</td>
+                <td>Bilişim</td>
+                <td>35.000</td>
+            </tr>
+            <tr>
+                <td>Atilla</td>
+                <td>Kalite</td>
+                <td>25.000</td>
+            </tr>
+            <tr>
+                <td>Atilla</td>
+                <td>Kalite</td>
+                <td>25.000</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

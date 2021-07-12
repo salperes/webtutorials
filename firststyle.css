@@ -1,0 +1,11 @@
+html * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td {
+    font-size: 35;
+}
+
+a:hover {
+    color: red;
+}

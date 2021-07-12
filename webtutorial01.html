@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* 
+        TAG seçimi
+        */
+        h2 {
+            color: red;
+        }
+
+        /* 
+        ID seçimi
+        */
+        #little1 {
+            background-color: orange;
+        }
+
+
+        /* 
+        ID seçimi
+        */
+        #little-art1 {
+            background-color: green;
+        }
+
+        /* 
+        Class seçimi
+        */
+        .info {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 
+        Class ve ID seçimi (veya seçimi)
+        */
+        #little3,
+        .info {
+            background-color: grey;
+        }
+
+        /*
+        Class ve ID seçimi (ve seçimi)
+        */
+        #little-art1.info {
+            background-color: bisque;
+        }
+
+        /*
+        Hiyerarşik seçim
+        */
+        nav a {
+            text-decoration: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /*
+        Tüm elemanlar
+        */
+        * {
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HEADER ETİKETİ</h1>
+        <nav id="topnav">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Service</a>
+        </nav>
+    </header>
+
+    <section id="sec-little">
+        <article>
+            <h2 id="little1">Story 1</h2>
+            <p id="little-art1" class="lead info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor soluta porro vero ducimus repudiandae
+                eligendi est blanditiis asperiores reprehenderit optio cupiditate, non ut repellat atque laborum sequi
+                labore quos nihil?</p>
+
+        </article>
+        <article>
+            <p id="little2" class="info">Story 2</p>
+        </article>
+        <article>
+            <p id="little3" class="info">Story 3</p>
+        </article>
+    </section>
+    <section id="sec-big">
+        <article>
+            <h2>Story 1</h2>
+        </article>
+        <article>Story 2</article>
+        <article>Story 3</article>
+    </section>
+    <aside>
+        <na id="sidenav">
+            </nav>
+    </aside>
+    <footer>
+        <a href="#"> Copyright</a>
+    </footer>
+</body>
+
+</html>

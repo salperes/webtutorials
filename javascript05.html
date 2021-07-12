@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=UTF-8>
+</head>
+
+<body>
+    <canvas id="tuval" width="640" height="480" style="border: 1px solid;">
+    </canvas>
+    <script>
+        // function writeMessage(canvas, message) {
+        //     var context = canvas.getContext('2d');
+        //     context.clearRect(0, 0, canvas.width, canvas.height);
+        //     context.font = '18pt Calibri';
+        //     context.fillStyle = 'black';
+        //     context.fillText(message, 10, 25);
+        // }
+        var tuval = document.getElementById("tuval");
+        var cizim = tuval.getContext("2d");
+        tuval.addEventListener('click', function (e) {
+            cizim.beginPath();
+            cizim.arc(e.x, e.y, 50, 0, 2 * Math.PI);
+            cizim.stroke();
+
+        });
+        cizim.beginPath();
+        cizim.moveTo(0, 0);
+        cizim.lineTo(300, 300);
+        cizim.stroke();
+
+    </script>
+
+</body>
+
+</html>

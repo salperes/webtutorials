@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pod Configuration</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+
+        input[type=text],
+        [type=password],
+        select {
+            width: 100%;
+            padding: 0.5em 0.5em;
+            margin: 2px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }
+
+        label {
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+        }
+
+        valuelabel {
+            display: inline-block;
+            width: 90%;
+            text-align: left;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 10px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+
+        div.hdr {
+            text-align: left;
+            border-bottom: 1px solid red;
+            margin: 0.5rem;
+            padding: 0 0.5rem;
+            font-size: 2rem;
+        }
+
+        .container {
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .container-right {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+
+        div.std {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            float: left;
+            width: 50%;
+        }
+
+        div.rightblank {
+            margin-top: 10vh;
+            width: 100%;
+        }
+
+        div.right {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            text-align: center;
+            line-height: 1.5rem;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        div.btm {
+            text-align: center;
+            border-top: 1px solid red;
+            margin: 0.5rem 0.5rem;
+            padding: 0.5rem 0.5rem;
+            bottom: 0px;
+            width: 100%;
+
+            position: absolute;
+        }
+
+        @media(max-width:768px) {
+            div.std {
+                width: 100%;
+            }
+
+            div.container-right {
+                width: 100%;
+            }
+
+        }
+
+
+        #table1 {
+            table-layout: auto;
+            width: 100%;
+            /* border-collapse: collapse; */
+            /* border: 1px solid black; */
+            margin: 0;
+        }
+
+        #table2 {
+            table-layout: auto;
+            width: 100%;
+            border-collapse: collapse;
+            /* border: 1px solid black; */
+        }
+
+        .td-left {
+            width: 30%;
+            margin-top: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            /* border: 1px solid black; */
+        }
+
+        .td-right {
+            width: 70%;
+            margin-top: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .td-left2 {
+            width: 30%;
+            text-align: right;
+            border-bottom: 1px solid lightgray;
+            margin-right: 0px;
+        }
+
+        .td-right2 {
+            width: 70%;
+            text-align: left;
+            border-bottom: 1px solid lightgrey;
+            margin-left: 0px;
+            padding-left: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="hdr">
+        <p>Pod Control Board Configuration Page</p>
+    </div>
+
+    <div class="container">
+
+        <div class="std">
+            <form action="/action_page">
+                <font size="2" face=sans-serif>
+                    <table id="table1">
+                        <tr>
+                            <td class="td-left">
+                                <label for="fssid">Set WiFi SSID :</label>
+                            </td>
+                            <td class="td-right">
+                                <input type="text" id="fssid" name="_fssid" placeholder="SSID">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td-left">
+                                <label for="fpassword">Password :</label>
+                            </td>
+                            <td class="td-right">
+                                <input type="password" id="fpassword" name="_password" placeholder="wifi password">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td-left">
+                                <label for="fmqttserver">MQTT Server :</label>
+                            </td>
+                            <td class="td-right">
+                                <input type="text" id="fmqttserver" name="_fmqttserver" placeholder="MQTT Server ">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td-left">
+                                <label for="fmqttport">MQTT Server Port :</label>
+                            </td>
+
+                            <td class="td-right">
+                                <input type="text" id="fmqttport" name="_fmqttport" placeholder=1883>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="td-left">
+                                <label for="fmqttuser">MQTT Username :</label>
+                            </td>
+
+                            <td class="td-right">
+                                <input type="text" id="fmqttuser" name="_fmqttuser" placeholder="MQTT Username ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">
+
+                                <label for="fmqttpasswd">MQTT Password :</label>
+                            </td>
+                            <td class="td-right"> <input type="password" id="fmqttpass" name="_fmqttpass"
+                                    placeholder="MQTT Password ">
+
+                            </td>
+                        </tr>
+                    </table>
+                </font>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="container-right">
+            <div class="right">
+                <font size="2" face=sans-serif>
+
+                    <table id="table2">
+                        <tr>
+                            <td class="td-left2">Pod Serial :</td>
+                            <td class="td-right2" id="podFirmware">Data Not Received</td>
+                        </tr>
+
+                        <tr>
+                            <td class="td-left2">Firmware Version : </td>
+                            <td class="td-right2" id="podSerial">Data Not Received</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="td-left2">Board Version :</td>
+                            <td class="td-right2" id="podHardware">Data Not Received</td>
+                        </tr>
+
+                        <tr>
+                            <td class="td-left2">Current SSID :</td>
+                            <td class="td-right2" id="curSSID">Data Not Received </td>
+                        </tr>
+                        <tr>
+                            <td class="td-left2">Cur. MQTT Server :</td>
+                            <td class="td-right2" id="curMQTTSvr">Data Not Received</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left2">Cur. MQTT User :</td>
+                            <td class="td-right2" id="curMQTTUsr">Data Not Received</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left2">MQTT Client ID :</td>
+                            <td class="td-right2" id="clientID">Data Not Received</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left2" style="border: none;">Current IP addr. :</td>
+                            <td class="td-right2" style="border: none;" id="currIP">Data Not Received</td>
+                        </tr>
+                    </table>
+            </div>
+
+            <div class="rightblank">
+            </div>
+
+            <div class="right">
+                <form action="/action_page">
+                    <font size="2" face=sans-serif>
+                        <a href="/update">Go to firmware update page</a>
+                    </font>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="btm">tst</div>
+
+    <script>
+        getData();
+
+        function getData() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var js = JSON.parse(this.responseText);
+                    Object.keys(js).forEach(function (key) {
+                        document.getElementById(key).innerHTML = js[key];
+                    })
+                    //document.getElementById("podSerial").innerHTML =a.podSerial;
+                }
+            };
+            xhttp.open("GET", "podValues", true);
+            xhttp.send();
+        }
+    </script>
+
+
+</body>
+
+</html>

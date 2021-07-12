@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=UTF-8>
+
+
+</head>
+
+<body>
+
+
+    <script>
+        // document.write("<tr>");
+        // for (firstRow = 1; firstRow < 10; firstRow++) document.write("<td>" + firstRow + "</td>");
+        // document.write("</tr>");
+        document.write(" <table border=1>");
+        for (row = 1; row < 10; row++) {
+            document.write("<tr>");
+            for (col = 1; col < 10; col++) {
+                document.write("<td>" + (col * row) + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+
+    <br> Hello <a id="message"></a> World! <br>
+    <button onclick='document.getElementById("message").innerHTML="from button";'>PRESS ME</button>
+
+</body>
+
+</html>
