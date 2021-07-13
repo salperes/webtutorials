@@ -1,0 +1,22 @@
+#navbar{
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 90px;
+}
+
+#navbar .header-logo-small {
+    margin-bottom: 0.5rem;
+}
+
+#training .items {
+    flex-direction: column;
+}
+#training .items .item{
+    width: 100%;
+}
+
+.courses .course {
+    flex-direction: column;
+}

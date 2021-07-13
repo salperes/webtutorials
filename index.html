@@ -2,32 +2,186 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+
     <link rel="stylesheet" type="text/css" href="firststyle.css" />
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/31f2dbc059.js" crossorigin="anonymous"></script>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" media="(max-width:768px)" href="css/tablet.css">
+    <link rel="stylesheet" media="(max-width:510px)" href="css/mobile.css">
 </head>
 
 <body>
-    <form action="mailto:salper.es@gmail.com" method="post">
-        <label for="isim">İsim :</label>
-        <input type="text" name="isim" value=""><br>
-        <input type="text" name="dyeri" value="Ankara"><br>
-        <select name="popup" id="">
-            <option value="opt1">OPT1</option>
-            <option value="opt2">OPT2</option>
-            <option value="opt3">OPT3</option>
-        </select>
-        <br>
-        <label for="gift">Hediye OK?</label>
-        <input type="checkbox" name="gift" value="yes" checked>
-
-        <button type="submit">GÖNDER</button>
-        <button type="clear">TEMİZLE</button>
+    <header class="bg-dark-blue">
+        <div class="container">
+            <nav id="navbar">
+                <div class="logo-container">
+                    <h1 class="header-logo text-effect">AES DESIGN</h1>
+                    <h2 class="header-logo-small text-effect">innovative technologies</h2>
+                </div>
 
 
 
-    </form>
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#training">Eğitimler</a></li>
+                    <li><a href="#courses">Kurslar</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <a href="www.google.com">Google</a>
+    <section id="home" class="text-center">
+        <img id="imgcircle" src="images/aes.jpeg" alt="">
+        <div class="name">
+            <h2 class="heading-big" style="padding-top: 1rem ;">Alper Es</h2>
+            <p>IT Architect | Project Manager</p>
+        </div>
+
+        <a href="#courses" class="btn btn-primary">Kurslara Git</a>
+    </section>
+
+    <section id="training" class="bg-dark-blue">
+        <h3 class="text-center heading-medium">Eğitimler</h3>
+        <div class="items">
+            <article class="item">
+                <i class="fa fa-pencil-alt"></i>
+                <h3>Sınıf İçi Eğitimler</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia dolorem, at harum a minima eveniet
+                    itaque ipsa illo distinctio tenetur id delectus iste consequuntur magnam! Voluptatibus accusamus
+                    quia vitae necessitatibus beatae, officia repellendus. Odit numquam repellat, consectetur optio
+                    ipsam, exercitationem ea quas magni facere placeat, error in voluptatum corporis nam?</p>
+            </article>
+
+            <article class="item">
+                <i class="fa fa-pencil-alt"></i>
+                <h3>Online Eğitimler</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia dolorem, at harum a minima eveniet
+                    itaque ipsa illo distinctio tenetur id delectus iste consequuntur magnam! Voluptatibus accusamus
+                    quia vitae necessitatibus beatae, officia repellendus. Odit numquam repellat, consectetur optio
+                    ipsam, exercitationem ea quas magni facere placeat, error in voluptatum corporis nam?</p>
+            </article>
+
+            <article class="item">
+                <i class="fa fa-pencil-alt"></i>
+                <h3>Konferanslar</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia dolorem, at harum a minima eveniet
+                    itaque ipsa illo distinctio tenetur id delectus iste consequuntur magnam! Voluptatibus accusamus
+                    quia vitae necessitatibus beatae, officia repellendus. Odit numquam repellat, consectetur optio
+                    ipsam, exercitationem ea quas magni facere placeat, error in voluptatum corporis nam?</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="courses">
+        <h3 class="text-center heading-medium">Kurslar</h3>
+        <div class="container">
+            <div class="courses">
+                <!-- Course 1 -->
+                <div class="course">
+                    <div class="course-image">
+                        <img src="images/python_logo.png" alt="">
+                        <span>%90 İndirim</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="title">
+                            Python Başlık
+                        </div>
+                        <div class="description">
+                            Python üzerinde geliştirme Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                            esse
+                            deserunt nobis. Adipisci libero, modi atque, veniam maxime inventore ipsa repellendus
+                            corporis
+                            distinctio laborum nemo totam. Consectetur placeat repudiandae aut!
+                        </div>
+                        <div class="instructor">AES</div>
+                        <div class="rating">5.0</div>
+                    </div>
+                </div>
+                <!-- Course 2 -->
+                <div class="course">
+                    <div class="course-image">
+                        <img src="images/cpp_logo.png" alt="">
+                        <span>%90 İndirim</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="title">
+                            C++ Başlık
+                        </div>
+                        <div class="description">
+                            Python üzerinde geliştirme Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                            esse
+                            deserunt nobis. Adipisci libero, modi atque, veniam maxime inventore ipsa repellendus
+                            corporis
+                            distinctio laborum nemo totam. Consectetur placeat repudiandae aut!
+                        </div>
+                        <div class="instructor">AES</div>
+                        <div class="rating">5.0</div>
+                    </div>
+                </div>
+                <!-- Course 3 -->
+                <div class="course">
+                    <div class="course-image">
+                        <img src="images/iot_logo.png" alt="">
+                        <span>%90 İndirim</span>
+                    </div>
+                    <div class="course-info">
+                        <div class="title">
+                            IoT Başlık
+                        </div>
+                        <div class="description">
+                            Python üzerinde geliştirme Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                            esse
+                            deserunt nobis. Adipisci libero, modi atque, veniam maxime inventore ipsa repellendus
+                            corporis
+                            distinctio laborum nemo totam. Consectetur placeat repudiandae aut!
+                        </div>
+                        <div class="instructor">AES</div>
+                        <div class="rating">5.0</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer id="contact" class="bg-dark-blue">
+        <div class="contact-form">
+            <form>
+                <h4 class="text-center heading-medium">Bana Ulaşın</h4>
+                <div class="form-group">
+                    <label for="name">İsim</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="İsim">
+                </div>
+                <div class="form-group">
+                    <label for="email">eMail</label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="eMail Adresi">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mesaj</label>
+                    <textarea class="form-control" name="message" id="message" rows="5"
+                        placeholder="Mesajınız"></textarea>
+                </div>
+                <button type="button" class="btn btn-block">Gönder</button>
+            </form>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+
+        </div>
+    </footer>
 </body>
 
 </html>
