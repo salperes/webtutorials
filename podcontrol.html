@@ -11,14 +11,15 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-
         }
 
         .header {
             font-size: 2rem;
             border-bottom: 1px solid red;
-            margin: 0.5rem 0.5rem;
+            background-color: white;
+            margin: 0 0.5rem;
             padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
             position: fixed;
             top: 0;
             left: 0;
@@ -28,12 +29,16 @@
         .footer {
             font-size: 0.8rem;
             border-top: 1px solid red;
-            margin: 0 0.5rem;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            margin-top: .5rem;
+            background-color: white;
             padding-top: 0.5em;
+            padding-bottom: 0.5em;
             position: fixed;
             display: flex;
             align-content: space-around;
-            bottom: 0.5em;
+            bottom: 0;
             left: 0;
             right: 0;
         }
@@ -56,21 +61,21 @@
             padding: 0.2rem;
         }
 
-        .left-container {
+        .settings-container {
             display: flex;
             flex-wrap: wrap;
-            background-color: #f2f2f2;
+            /* background-color: #f2f2f2; */
             flex-direction: row;
             padding: 0.5rem;
         }
 
-
-        .right-container {
+        .values-container {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            background-color: #f2f2f2;
+            /* background-color: #f2f2f2; */
             padding: 0.5rem;
+            height: auto;
         }
 
         .left-labels {
@@ -83,6 +88,9 @@
             padding: 0.2em 0.2em;
             margin: 2px 0;
             flex: 65%;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
 
         .bottom_line {
@@ -102,11 +110,18 @@
         @media (max-width: 768px) {
 
             .container-elements {
-                flex: 100%
+                flex: 100%;
+            }
+
+            .container {
+                height: auto;
             }
         }
 
         @media (max-width: 520px) {
+            .container {
+                height: auto;
+            }
 
             .right-values {
                 flex: 100%
@@ -164,59 +179,16 @@
     <section>
         <div class="container">
 
-            <!-- Left Side Container Elements -->
-            <div class="container-elements">
-                <!-- <div class="left-container"> -->
-                <form class="left-container" action="/action_page">
-
-                    <div class="left-labels">Set WiFi SSID :</div>
-                    <div class="right-values"><input type="text" id="fssid" name="_fssid" placeholder="SSID"> </div>
-                    <br>
-
-                    <div class="left-labels">Set WiFi Password :</div>
-                    <div class="right-values"><input type="password" id="fpassword" name="_fpassword"
-                            placeholder="WiFi Paswsword">
-                    </div>
-                    <br>
-
-                    <div class="left-labels">MQTT Server Address :</div>
-                    <div class="right-values"><input type="text" id="fmqttserver" name="_fmqttserver"
-                            placeholder="MQTT Server">
-                    </div>
-                    <br>
-
-                    <div class="left-labels">MQTT Server Port :</div>
-                    <div class="right-values"><input type="text" id="fmqttport" name="_fmqttport" placeholder="1883">
-                    </div>
-                    <br>
-
-                    <div class="left-labels">MQTT Username :</div>
-                    <div class="right-values"><input type="text" id="fmqttuser" name="_fmqttuser"
-                            placeholder="MQTT Username">
-                    </div>
-                    <br>
-
-                    <div class="left-labels">MQTT Password :</div>
-                    <div class="right-values"><input type="password" id="fmqttpass" name="_fmqttpass"
-                            placeholder="MQTT Password">
-                    </div>
-                    <br>
-
-                    <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
-                </form>
-                <!-- </div> -->
-            </div>
-
             <!-- Right Side Container Elements -->
+
             <div class="container-elements">
-                <div class="right-container">
+                <div class="values-container">
                     <br>
-                    <div class="left-labels bottom_line">Pod Serial :</div>
+                    <div class="left-labels bottom_line">Firmware Version :</div>
                     <div class="right-values bottom_line" id="podFirmware">Data Not Received</div>
                     <br>
 
-                    <div class="left-labels bottom_line">Firmware Version : </div>
+                    <div class="left-labels bottom_line">Pod Serial :</div>
                     <div class="right-values bottom_line" id="podSerial">Data Not Received</div>
                     <br>
 
@@ -247,6 +219,51 @@
 
                 </div>
             </div>
+            <!-- Left Side Container Elements -->
+            <div class="container-elements">
+                <!-- <div class="settings-container"> -->
+                <form class="settings-container" action="/action_page">
+
+                    <div class="left-labels">Set WiFi SSID :</div>
+                    <div class="right-values"><input type="text" id="fssid" name="_fssid" placeholder="SSID"> </div>
+                    <br>
+
+                    <div class="left-labels">Set WiFi Password :</div>
+                    <div class="right-values"><input type="password" id="fpassword" name="_fpassword"
+                            placeholder="WiFi Paswsword">
+                    </div>
+                    <br>
+
+                    <div class="left-labels">MQTT Server Addr. :</div>
+                    <div class="right-values"><input type="text" id="fmqttserver" name="_fmqttserver"
+                            placeholder="MQTT Server">
+                    </div>
+                    <br>
+
+                    <div class="left-labels">MQTT Server Port :</div>
+                    <div class="right-values"><input type="text" id="fmqttport" name="_fmqttport" placeholder="1883">
+                    </div>
+                    <br>
+
+                    <div class="left-labels">MQTT Username :</div>
+                    <div class="right-values"><input type="text" id="fmqttuser" name="_fmqttuser"
+                            placeholder="MQTT Username">
+                    </div>
+                    <br>
+
+                    <div class="left-labels">MQTT Password :</div>
+                    <div class="right-values"><input type="password" id="fmqttpass" name="_fmqttpass"
+                            placeholder="MQTT Password">
+                    </div>
+                    <br>
+
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+                <!-- </div> -->
+            </div>
+
+
         </div>
         <script>
             getData();
