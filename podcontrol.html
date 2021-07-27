@@ -11,12 +11,16 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            /* color: white;
+            background-color: #222222; */
+
         }
 
+
         .header {
+            display: flex;
             font-size: 2rem;
             border-bottom: 1px solid red;
-            background-color: white;
             margin: 0 0.5rem;
             padding-bottom: 0.5rem;
             padding-top: 0.5rem;
@@ -24,6 +28,23 @@
             top: 0;
             left: 0;
             right: 0;
+            /* background-color: #222222;
+            color: white; */
+        }
+
+        .darkswitch {
+            position: fixed;
+            top: 0.5rem;
+            right: 0;
+            margin: 0.5rem 1rem;
+            font-size: .7rem;
+            font-weight: bold;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .darkswitch:hover {
+            text-shadow: 0 0 4px;
         }
 
         .footer {
@@ -32,7 +53,6 @@
             margin-left: 0.5rem;
             margin-right: 0.5rem;
             margin-top: .5rem;
-            background-color: white;
             padding-top: 0.5em;
             padding-bottom: 0.5em;
             position: fixed;
@@ -43,17 +63,19 @@
             right: 0;
         }
 
+        a {
+            text-decoration: none;
+            text-align: right;
+        }
+
         .container {
             display: flex;
-            overflow-y: scroll;
-            height: 80vh;
-            margin-top: 3.5rem;
-            margin-bottom: 2rem;
-            margin-left: 0.5rem;
-            margin-right: 0.5rem;
+            margin: 3.5rem auto;
             flex-direction: row;
             flex-wrap: wrap;
             font-size: 0.8rem;
+            max-width: 1024px;
+
         }
 
         .container-elements {
@@ -107,6 +129,18 @@
 
         }
 
+        .toggle-light {
+            color: #222222;
+            background-color: white;
+        }
+
+        .toggle-dark {
+            color: white;
+            background-color: #222222;
+        }
+
+
+
         @media (max-width: 768px) {
 
             .container-elements {
@@ -119,6 +153,15 @@
         }
 
         @media (max-width: 520px) {
+            #header {
+                font-size: 1.25rem;
+            }
+
+            .darkswitch {
+                top: 0;
+                font-size: .6rem;
+            }
+
             .container {
                 height: auto;
             }
@@ -174,7 +217,8 @@
 
 <body>
     <header>
-        <div class="header">Pod Configuration Page</div>
+        <div class="header" id="header">Pod Configuration Page</div>
+        <div class="darkswitch" id="darkswitch">DARK MODE</div>
     </header>
     <section>
         <div class="container">
@@ -225,35 +269,38 @@
                 <form class="settings-container" action="/action_page">
 
                     <div class="left-labels">Set WiFi SSID :</div>
-                    <div class="right-values"><input type="text" id="fssid" name="_fssid" placeholder="SSID"> </div>
+                    <div class="right-values"><input type="text" id="fssid" name="_fssid" placeholder="SSID"
+                            class="inputCell">
+                    </div>
                     <br>
 
                     <div class="left-labels">Set WiFi Password :</div>
                     <div class="right-values"><input type="password" id="fpassword" name="_fpassword"
-                            placeholder="WiFi Paswsword">
+                            placeholder="WiFi Paswsword" class="inputCell">
                     </div>
                     <br>
 
                     <div class="left-labels">MQTT Server Addr. :</div>
                     <div class="right-values"><input type="text" id="fmqttserver" name="_fmqttserver"
-                            placeholder="MQTT Server">
+                            placeholder="MQTT Server" class="inputCell">
                     </div>
                     <br>
 
                     <div class="left-labels">MQTT Server Port :</div>
-                    <div class="right-values"><input type="text" id="fmqttport" name="_fmqttport" placeholder="1883">
+                    <div class="right-values"><input type="text" id="fmqttport" name="_fmqttport" placeholder="1883"
+                            class="inputCell">
                     </div>
                     <br>
 
                     <div class="left-labels">MQTT Username :</div>
                     <div class="right-values"><input type="text" id="fmqttuser" name="_fmqttuser"
-                            placeholder="MQTT Username">
+                            placeholder="MQTT Username" class="inputCell">
                     </div>
                     <br>
 
                     <div class="left-labels">MQTT Password :</div>
                     <div class="right-values"><input type="password" id="fmqttpass" name="_fmqttpass"
-                            placeholder="MQTT Password">
+                            placeholder="MQTT Password" class="inputCell">
                     </div>
                     <br>
 
@@ -265,37 +312,82 @@
 
 
         </div>
-        <script>
-            getData();
 
-            function getData() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var js = JSON.parse(this.responseText);
-                        Object.keys(js).forEach(function (key) {
-                            document.getElementById(key).innerHTML = js[key];
-                        })
-                        //document.getElementById("podSerial").innerHTML =a.podSerial;
-                    }
-                };
-                xhttp.open("GET", "podValues", true);
-                xhttp.send();
-            }
-        </script>
     </section>
     <footer>
         <form action="/action_page">
 
-            <div class="footer">
+            <div class="footer" id="footer">
                 <div class="container-elements">© AES Design 2021 </div>
-                <a class="container-elements" href="/update" style="text-decoration: none; text-align: right;">Go to
+                <a class="container-elements" href="/update" id="update">Go to
                     firmware update
                     page</a>
             </div>
 
         </form>
     </footer>
+    <script>
+        var darkmode = true;
+        var darkswitch = document.getElementById("darkswitch")
+        var header = document.getElementById("header");
+        var footer = document.getElementById("footer");
+        var inputCells = document.getElementsByClassName("inputCell");
+        var updateLink = document.getElementById("update");
+        toogleDarkMode();
+        getData();
+
+        function toogleDarkMode() {
+            var textValue;
+            var addClass;
+            var removeClass;
+            if (darkmode) {
+                textValue = "LIGHT MODE";
+                addClass = "toggle-dark";
+                removeClass = "toggle-light";
+            }
+            else {
+                textValue = "DARK MODE";
+                addClass = "toggle-light";
+                removeClass = "toggle-dark";
+            }
+            darkswitch.innerHTML = textValue;
+            document.body.classList.remove(removeClass);
+            header.classList.remove(removeClass);
+            footer.classList.remove(removeClass);
+            updateLink.classList.remove(removeClass);
+
+            document.body.classList.add(addClass);
+            header.classList.add(addClass);
+            footer.classList.add(addClass);
+            updateLink.classList.add(addClass);
+            for (var i = 0; i < inputCells.length; i++) {
+                inputCells[i].classList.remove(removeClass);
+                inputCells[i].classList.add(addClass);
+            }
+
+        }
+
+        function getData() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var js = JSON.parse(this.responseText);
+                    Object.keys(js).forEach(function (key) {
+                        document.getElementById(key).innerHTML = js[key];
+                    })
+                }
+            };
+            xhttp.open("GET", "podValues", true);
+            xhttp.send();
+        }
+
+
+        darkswitch.onclick = function () {
+            darkmode = !darkmode;
+            toogleDarkMode();
+        }
+
+    </script>
 </body>
 
 
